@@ -1,0 +1,57 @@
+Step By step
+1.sudo apt-get install tasksel 
+2.sudo tasksel
+3.sudo apt-get install phpmyadmin
+4.sudo apt-get install php-mbstring php7.0-mbstring php-gettext
+
+Restart Apache2
+1.sudo service apache2 restart
+
+#### Edit 000-default.conf
+1.sudo gedit /etc/apache2/sites-available/000-default.conf
+
+Ai Page e Nicher Code ta Bosan
+
+DocumentRoot /var/www/html
+<Directory "/var/www/html">
+	AllowOverride All
+</Directory>
+
+
+#### Server Documnet Root Change
+ At frist Create a folder in Your PC directory| Home/User/sites/public_html
+
+1.sudo gedit /etc/apache2/apache2.conf
+
+ Nicher code ta bosan
+
+<Directory /home/user/Sites/public_html/>
+	Options Indexes FollowSymLinks
+	AllowOverride None
+	Require all granted
+</Directory>
+
+
+2.000-default.conf file ta edit koren
+
+sudo gedit /etc/apache2/sites-available/000-default.conf
+
+Nicher code ta bosan
+
+DocumentRoot /home/user/Sites/public_html
+<Directory "/home/user/Sites/public_html">
+	AllowOverride All
+</Directory>
+
+3.Apache2 restart maren
+
+sudo service apache2 restart
+
+4. Group er user name and Group er uesr name bosan
+ 
+ sudo gedit /etc/apache2/envvars
+
+	export APACHE_RUN_USER=username
+        export APACHE_RUN_GROUP=username
+
+
